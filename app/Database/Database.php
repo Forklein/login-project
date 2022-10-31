@@ -7,9 +7,13 @@ use Exception;
 
 class Database
 {
-    private $password;
-    protected $host, $database, $username, $connection;
-    protected $port = 3306;
+    const HOST = 'localhost';
+    const USERNAME = 'root';
+    const PASSWORD = 'root';
+    const DATABASE = 'login_project';
+    const PORT = 3306;
+
+    protected $connection;
 
     /**
      * Sets the connection credentials to connect to your database.
@@ -21,7 +25,7 @@ class Database
      * @param integer $port - the port of your database
      * @param boolean $autoconnect - to auto connect to the database after settings connection credentials
      */
-    public function __construct($host, $username, $password, $database, $port = 3306, $autoconnect = true)
+    public function __construct($host = self::HOST, $username = self::USERNAME, $password = self::PASSWORD, $database = self::DATABASE, $port = self::PORT, $autoconnect = true)
     {
         $this->host = $host;
         $this->database = $database;

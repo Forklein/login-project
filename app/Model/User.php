@@ -7,13 +7,13 @@ use App\Database\Database;
 class User extends Database
 {
     const USER = 'users';
-    public $name, $password, $active, $code, $timestamp, $database;
+    protected $name, $password, $active, $code, $timestamp;
 
 
-    public function __construct(Database $_database)
+    public function __construct()
     {
-
-        return $this->database = $_database;
+        parent::__construct();
+        return $this->connection;
     }
 
     public function getDatabase()
@@ -24,7 +24,7 @@ class User extends Database
     public function getUser($id)
     {
         $query = "SELECT * FROM users WHERE id = $id";
-        $elements = $this->database->query($query);
+        $elements = $this->query($query);
         return $elements;
     }
 

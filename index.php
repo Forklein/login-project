@@ -4,8 +4,7 @@ require_once('app/start.php');
 use App\Model\User;
 
 $table = "users";
-// $result = $database->query("SELECT * FROM $table WHERE ID = 3");
-$users = new User($database);
+$users = new User();
 $user = $users->getUser(2);
 
 
