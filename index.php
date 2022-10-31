@@ -3,9 +3,18 @@ require_once('app/start.php');
 
 use App\Model\User;
 
-$table = "users";
-$users = new User();
-$user = $users->getUser(2);
+
+
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    $user = $_POST['email'];
+    $password = $_POST['password'];
+    print_r($user);
+    print_r($password);
+    die();
+    // $users = new User();
+    // $user = $users->getUser($id);
+}
+
 
 
 ?>
@@ -21,7 +30,24 @@ $user = $users->getUser(2);
 </head>
 
 <body>
+    <form>
+        <input type="email" name="email" id="email">
+        <input type="password" name="password" id="password">
+        <button id="submit" type="submit">Invia</button>
+    </form>
 
+    <script type="text/javascript">
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const btn = document.getElementById("submit");
+
+        // btn.addEventListener("click", () => {
+        //     fetch(`${window.location}`,
+        //         method => "POST",
+        //         body => 
+        //     )
+        // })
+    </script>
 </body>
 
 </html>

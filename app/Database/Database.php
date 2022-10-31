@@ -65,7 +65,6 @@ class Database
             while ($row = $queryResult->fetch_assoc()) {
                 $elements[] = $row;
             }
-            print_r($elements);
             if (sizeof($elements) < 1) {
                 throw new Exception("Nessun risultato");
             }
